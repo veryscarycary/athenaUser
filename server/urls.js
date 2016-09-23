@@ -1,5 +1,6 @@
+const POSTGRESQL = 5432;
+
 module.exports = {
-  defaultPort: 3001,
-  databasePort: 5432,
-  databaseUrl: 'localhost'
+  default: 3001,
+  database: 'http://localhost' + POSTGRESQL,
 };

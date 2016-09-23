@@ -1,8 +1,6 @@
 const chalk = require('chalk');
-const url = require('./urls.js');
-
 //set port to default port or POST variable provided by user
-const port = process.argv[2] || require('./urls.js').defaultPort; 
+const port = process.argv[2] || require('./urls.js').default; 
 
 //set server to listen to port
 require('./server.js').listen(port, () => 
