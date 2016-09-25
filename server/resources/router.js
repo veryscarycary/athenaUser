@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require('../config/middleware.js').router();
 const api = require('./controller.js');
 
 router.route('/api/:username')

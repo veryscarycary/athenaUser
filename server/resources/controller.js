@@ -1,5 +1,8 @@
-const request = require('request');
-const url = require('../urls.js').database;
+const mw = require('../config/middleware.js');
+const request = mw.request;
+const db = require('./db.js');
+const url = mw.database;
+const Sequelize = mw.sequelize;
 const bcrypt = require('bcrypt');
 module.exports = {
   getUser(req, res) {
