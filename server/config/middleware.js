@@ -9,6 +9,7 @@ module.exports = {
   mongoose: mongoose,
   bodyParser: require('body-parser'),
   chalk: require('chalk'),
+  bcrypt: require('bcrypt'),
   request: require('request')//,
   // sequelize: require('sequelize'), 
   // pg: require('pg'),
