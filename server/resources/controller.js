@@ -47,13 +47,13 @@ module.exports = {
             let user = req.body;
             user.password = bcPass;
             user.username = req.params.username;
-            new User(user).save(err => err ? 
+            new User(user).save((err, data) => err ? 
               (()=>{
                 err = err.toJSON();
                 delete err.op; //do not return attempted user data
                 res.status(400).send(err)
               })()
-              : res.status(201).send("User created")
+              : res.status(201).send(data._id)
             );
           })()
     );
