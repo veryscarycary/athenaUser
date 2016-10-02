@@ -7,10 +7,15 @@ const User = require('./schema.js');
 const SALT = 10;
 
 function checkAuth(req, res, cb) {
-  User.findOne({username: req.params.username},
+  let query = {};
+  if(req.params.hasOwnProperty('id'))
+    query._id = req.params.id;
+  else
+    query.username = req.params.username;
+  User.findOne(query,
     (err, data) => err ? 
       res.status(500).send(err)
-      : !data ? 
+      : !(()=> {console.log(data); return data})() ? 
         res.status(404).send(JSON.stringify("invalid user"))
         : bcrypt.compare(req.params.password, data.password,
           (err, match) => err ? 
@@ -37,7 +42,7 @@ module.exports = {
     );
   },
   signin(req, res) { //returns user unique id after signin
-    checkAuth(req, res, (data, match) => res.status(200).send(data._id));
+    checkAuth(req, res, data => res.status(200).send(data._id));
   }, 
   createUser(req, res) {
     bcrypt.hash(req.params.password, SALT, 
@@ -59,12 +64,14 @@ module.exports = {
     );
   },
   editUser(req, res) {
-    User.findOneAndUpdate({_id: req.params.id}, 
-      req.body,
-      {new: true},
-      (err, data) => err ?
-        res.status(404).send(err)
-        : res.status(200).send(JSON.stringify(data))
+    checkAuth(req, res, data => User
+      .findOneAndUpdate({_id: req.params.id}, 
+        req.body,
+        //{new: true},
+        err => err ?
+          res.status(404).send(err)
+          : res.status(200).send(JSON.stringify(data._id))
+      )
     );
   }, 
   deleteUser(req, res) {
