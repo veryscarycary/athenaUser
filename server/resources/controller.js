@@ -42,7 +42,7 @@ module.exports = {
     );
   },
   signin(req, res) { //returns user unique id after signin
-    checkAuth(req, res, data => res.status(200).send(data._id));
+    checkAuth(req, res, data => res.status(200).send(data));
   },
   createUser(req, res) {
     bcrypt.hash(req.params.password, SALT,
@@ -58,7 +58,7 @@ module.exports = {
                 delete err.op; //do not return attempted user data
                 res.status(400).send(err)
               })()
-              : res.status(201).send(data._id)
+              : res.status(201).send({_id: data._id, roles: data.roles})
             );
           })()
     );
