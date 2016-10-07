@@ -6,8 +6,9 @@ module.exports = mongoose.model('User', new mongoose
     username: {
       type:String,
       unique: true
-    }, 
+    },
     password: String,
+    roles: Array,
     firstName: String,
     lastName: String,
     email: String,
