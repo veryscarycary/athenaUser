@@ -2,43 +2,105 @@
   {
     "_id": "57ee8f4cdd26eb8204295b63",
     "bio": "I am a banana.",
-    "password": "$2a$10$qCpXDCAEfiaph6Mhu0Irwe/DjhK2dbgL247WyEUMMLve7h2u3tH.6",
-    "username": "testuser"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "user",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "roles": ["user"],
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   },
   {
     "_id": "57ee9430400fcf828afe2656",
     "bio": "I am a banana.",
-    "password": "$2a$10$t8Jodld0aWQUgtrE1E4ZKOgTO.rsRPYhLZ/wyZr96Ickn6VedCNZy",
-    "username": "testuser2"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "user2",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "roles": ["user"],
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   },
   {
     "_id": "57eea2669b139e8323fdc232",
     "bio": "I am a banana.",
-    "password": "$2a$10$L4zTj2dSVfimz4BpKsFhpunEEXzZaUgAWm1PupLHEbyhphTyyFChm",
-    "username": "testuser3"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "useradmin",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "roles": ["user", "admin"],
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   },
   {
     "_id": "57eea28b16df83832abc7b0d",
     "bio": "I am a banana.",
-    "password": "$2a$10$w0tm57cmNfV75JWhzEHDSO50vq1OsJ5u.eLJ.k5xuzt5V4G5zf/sG",
-    "username": "testuser4"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "useradmin2",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "roles": ["user", "admin"],
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   },
   {
     "_id": "57eea30716df83832abc7b12",
     "bio": "I am a banana.",
-    "password": "$2a$10$agORyVYvTcy2xp0FJxQHk.DbR3R9Xqk1MmFvZoWdOueNMJCXJu2ya",
-    "username": "testuser5"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "admin",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "roles": ["admin"],
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   },
   {
     "_id": "57eea4371604b7835173c6b5",
     "bio": "I am a banana.",
-    "password": "$2a$10$8iR5TmWd1.cLYo7dyIyTUu5jpl2v2zCob2pzlHVHolHTS1w7i4uQe",
-    "username": "testuser6"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "admin2",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "roles": ["admin"],
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   },
   {
     "_id": "57eea45f6c79e6835bb55573",
     "bio": "I am a banana.",
-    "password": "$2a$10$wNEjLLkz47/8QaLBapUjMOXHhVaAiB5k4lNGWlXtdKzTD46aqtUea",
-    "username": "testuser7"
+    "password": "$2a$10$bBo4OYzrqEoBZI5ccoqlBe00Rjl4gR3GH0LNYNYdsdu3zbTBFp802",
+    "username": "nobody",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "xyz@fake.com",
+    "phoneNumber": "7149992222",
+    "bio": "I'm a friendly support tech",
+    "dateSignedUp": 1475878272665,
+    "dateLastLogin": 1475878392944,
+    "dateProfileLastUpdated": 1475878414438
   }
 ]

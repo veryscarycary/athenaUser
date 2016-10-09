@@ -20,9 +20,11 @@ function checkAuth(req, res, cb) {
         : bcrypt.compare(req.params.password, data.password,
           (err, match) => err ?
             res.status(500).send(err)
-            : !match ?
-              res.status(401).send(JSON.stringify("invalid password"))
-              : cb(data, match))
+            : match ?
+              cb(data, match)
+              : (req.params.password === data.password) ?
+                cb(data, match)
+                : res.status(401).send(JSON.stringify("invalid password")))
   );
 };
 
@@ -64,13 +66,16 @@ module.exports = {
     );
   },
   editUser(req, res) {
+    console.log('here is the body!', req.body);
+    console.log('here is the req.params.id!', req.params.id);
+
     checkAuth(req, res, data => User
       .findOneAndUpdate({_id: req.params.id},
         req.body,
-        //{new: true},
+        {new: true},
         err => err ?
           res.status(404).send(err)
-          : res.status(200).send(JSON.stringify(data._id))
+          : res.status(200).send(JSON.stringify(data))
       )
     );
   },
