@@ -10,6 +10,7 @@
     "roles": ["user"],
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "https://scontent-sjc2-1.xx.fbcdn.net/v/t1.0-9/14650639_10155348259834616_7196719970394637730_n.jpg?oh=8358caf40dac6f0c7f370ab733e1f532&oe=5860689D",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438
@@ -25,6 +26,7 @@
     "roles": ["user"],
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "http://i.imgur.com/9Ysz6NX.png",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438
@@ -40,6 +42,7 @@
     "roles": ["user", "admin"],
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "http://i.imgur.com/9Ysz6NX.png",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438
@@ -55,6 +58,7 @@
     "roles": ["user", "admin"],
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "http://i.imgur.com/9Ysz6NX.png",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438
@@ -70,6 +74,7 @@
     "roles": ["admin"],
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "http://i.imgur.com/9Ysz6NX.png",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438
@@ -85,6 +90,7 @@
     "roles": ["admin"],
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "http://i.imgur.com/9Ysz6NX.png",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438
@@ -99,6 +105,7 @@
     "email": "xyz@fake.com",
     "phoneNumber": "7149992222",
     "bio": "I'm a friendly support tech",
+    "pictureUrl": "http://i.imgur.com/9Ysz6NX.png",
     "dateSignedUp": 1475878272665,
     "dateLastLogin": 1475878392944,
     "dateProfileLastUpdated": 1475878414438

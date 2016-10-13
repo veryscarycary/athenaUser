@@ -8,16 +8,16 @@ const SALT = 10;
 
 function checkAuth(req, res, cb) {
   let query = {};
-  if(req.params.hasOwnProperty('id'))
-    query._id = req.params.id;
+  if(req.body.hasOwnProperty('id'))
+    query._id = req.body.id;
   else
-    query.username = req.params.username;
+    query.username = req.body.username;
   User.findOne(query,
     (err, data) => err ?
       res.status(500).send(err)
-      : !(()=> {console.log(data); return data})() ?
-        res.status(404).send(JSON.stringify("invalid user"))
-        : bcrypt.compare(req.params.password, data.password,
+      : !data ?
+        res.status(404).send(JSON.stringify('invalid user'))
+        : bcrypt.compare(req.body.password, data.password,
           (err, match) => err ?
             res.status(500).send(err)
             : match ?
@@ -32,12 +32,12 @@ module.exports = {
   pingDb (req, res) {
     require('../db/index.js').readyState ?
       res.status(200).send(JSON.stringify('db connected'))
-      : res.status(503).send(JSON.stringify({name: 'MONGO_CONN_FAIL', message: 'bad MongoDB connection'}
-      ));
+      : res.status(503).send(JSON.stringify({name: 'MONGO_CONN_FAIL', message: 'bad MongoDB connection'})
+      );
   },
   getUser(req, res) {
-    let id = req.params.id;
-    User.find(id ? {_id: req.params.id} : {},
+    let id = req.query.id;
+    User.find(id ? {_id: id} : {},
       (err, data) => err ?
         res.status(404).send(err)
         : res.status(200).send(data)
@@ -47,13 +47,13 @@ module.exports = {
     checkAuth(req, res, data => res.status(200).send(data));
   },
   createUser(req, res) {
-    bcrypt.hash(req.params.password, SALT,
+    bcrypt.hash(req.body.password, SALT,
       (err, bcPass) => err ?
         res.status(500).send(err)
         : (() => {
             let user = req.body;
             user.password = bcPass;
-            user.username = req.params.username;
+            user.username = req.body.username;
             new User(user).save((err, data) => err ?
               (()=>{
                 err = err.toJSON();
@@ -66,24 +66,37 @@ module.exports = {
     );
   },
   editUser(req, res) {
-    console.log('here is the body!', req.body);
-    console.log('here is the req.params.id!', req.params.id);
-
-    checkAuth(req, res, data => User
-      .findOneAndUpdate({_id: req.params.id},
+    let id = req.body.id;
+    req.body.hasOwnProperty('newPassword') ?
+      checkAuth(req, res, data => {
+        req.body.password = req.body.newPassword;
+        delete req.body.newPassword;
+        bcrypt.hash(req.body.password, SALT,
+          (err, bcPass) => err ?
+            res.status(500).send(err)
+            : updateHelper(bcPass));
+      })
+      : updateHelper();
+    function updateHelper (password) {
+      if(password)
+        req.body.password = password;
+      else
+        delete req.body.password;
+      User.findOneAndUpdate({_id: id},
         req.body,
         {new: true},
         err => err ?
           res.status(404).send(err)
-          : res.status(200).send(JSON.stringify(data))
-      )
-    );
+          : res.status(200).send(id)
+      );
+    }
   },
   deleteUser(req, res) {
-    User.remove({_id: req.params.id},
-      (err, data) => err ?
-        res.status(404).send(err)
-        : res.status(200).send(JSON.stringify(data))
+    checkAuth(req, res, data => User.remove({_id: req.body.id},
+        (err, data) => err ?
+          res.status(404).send(err)
+          : res.status(200).send(JSON.stringify(data))
+      )
     );
   }
 };

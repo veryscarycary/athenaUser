@@ -14,6 +14,8 @@ module.exports = mongoose.model('User', new mongoose
     email: String,
     phoneNumber: String,
     bio: String,
+    pictureUrl: {type: String,
+      default: 'https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png'},
     dateSignedUp: Date,
     dateLastLogin: Date,
     dateProfileLastUpdated: Date
