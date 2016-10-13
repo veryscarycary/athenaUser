@@ -2,10 +2,12 @@
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise; //fixes depreciated mongoose promise by implementing ES6 promise.
 
+const express = require('express');
+
 module.exports = {
   urls: require('./urls.js'),
-  express: require('express'),
-  router: require('express').Router,
+  express: express,
+  router: express.Router,
   mongoose: mongoose,
   bodyParser: require('body-parser'),
   chalk: require('chalk'),
