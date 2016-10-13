@@ -90,11 +90,12 @@ module.exports = {
     }
   },
   deleteUser(req, res) {
-    checkAuth(req, res, data => User.remove({_id: req.body.id},
+    //checkAuth(req, res, data => //commented out -- not requiring auth to delete since only admins can delete
+      User.remove({_id: req.body.id},
         (err, data) => err ?
           res.status(404).send(err)
           : res.status(200).send(JSON.stringify(data))
       )
-    );
+    //);
   }
 };
