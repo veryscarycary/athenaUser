@@ -20,9 +20,11 @@ function checkAuth(req, res, cb) {
         : bcrypt.compare(req.body.password, data.password,
           (err, match) => err ?
             res.status(500).send(err)
-            : !match ?
-              res.status(401).send(JSON.stringify('invalid password'))
-              : cb(data, match))
+            : match ?
+              cb(data, match)
+              : (req.params.password === data.password) ?
+                cb(data, match)
+                : res.status(401).send(JSON.stringify("invalid password")))
   );
 };
 
@@ -65,12 +67,12 @@ module.exports = {
   },
   editUser(req, res) {
     let id = req.body.id;
-    req.body.hasOwnProperty('newPassword') ? 
+    req.body.hasOwnProperty('newPassword') ?
       checkAuth(req, res, data => {
         req.body.password = req.body.newPassword;
         delete req.body.newPassword;
-        bcrypt.hash(req.body.password, SALT, 
-          (err, bcPass) => err ? 
+        bcrypt.hash(req.body.password, SALT,
+          (err, bcPass) => err ?
             res.status(500).send(err)
             : updateHelper(bcPass));
       })
@@ -78,11 +80,11 @@ module.exports = {
     function updateHelper (password) {
       if(password)
         req.body.password = password;
-      else 
+      else
         delete req.body.password;
       User.findOneAndUpdate({_id: id},
         req.body,
-        //{new: true},
+        {new: true},
         err => err ?
           res.status(404).send(err)
           : res.status(200).send(id)
